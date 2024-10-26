@@ -16,7 +16,7 @@ public class GroceryActivity extends AppCompatActivity {
 
     // Grocery items and prices
     private String[] items = {"Apple", "Banana", "Orange", "Mango", "Grapes", "Tomato", "Potato", "Onion","Harpic"};
-    private int[] prices = {10, 5, 9, 12, 15, 7, 3, 6, 30};
+    private final int[] prices = {10, 5, 9, 12, 15, 7, 3, 6, 30};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
