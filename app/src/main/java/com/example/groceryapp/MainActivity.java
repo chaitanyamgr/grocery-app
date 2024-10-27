@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText nameEditText, phoneEditText;
     private Button loginButton;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.name_input);
         phoneEditText = findViewById(R.id.phone_input);
         loginButton = findViewById(R.id.login_button);
+        databaseHelper = new DatabaseHelper(this);
 
         // Handle login button click
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -34,12 +36,19 @@ public class MainActivity extends AppCompatActivity {
                 if (name.isEmpty() || phone.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter your name and phone number", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Proceed to the GroceryApp page with name and phone
-                    Intent intent = new Intent(MainActivity.this, GroceryActivity.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("phone", phone);
-                    startActivity(intent);
-                    finish(); // Close the login activity
+                    // Save user data to SQLite
+                    boolean isInserted = databaseHelper.addUser(name, phone);
+                    if (isInserted) {
+                        Toast.makeText(MainActivity.this, "User added successfully", Toast.LENGTH_SHORT).show();
+                        // Proceed to GroceryActivity
+                        Intent intent = new Intent(MainActivity.this, GroceryActivity.class);
+                        intent.putExtra("name", name);
+                        intent.putExtra("phone", phone);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Failed to add user", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
