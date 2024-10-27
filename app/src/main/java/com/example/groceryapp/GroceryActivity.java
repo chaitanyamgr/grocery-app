@@ -3,6 +3,7 @@ package com.example.groceryapp;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -50,43 +51,46 @@ public class GroceryActivity extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         // Handle item clicks
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                GroceryItem selectedItem = groceryItems.get(position);
-                totalAmount += selectedItem.getPrice(); // Add item price to total
-                updateUI();
-                Toast.makeText(GroceryActivity.this, selectedItem.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
-            }
+        gridView.setOnItemClickListener((parent, view, position, id) -> {
+            GroceryItem selectedItem = groceryItems.get(position);
+            totalAmount += selectedItem.getPrice(); // Add item price to total
+            updateUI();
+            Toast.makeText(GroceryActivity.this, selectedItem.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
         });
 
         // Handle Pay button click
-        findViewById(R.id.pay_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(GroceryActivity.this, "Total Payable Amount: ₹" + totalAmount, Toast.LENGTH_SHORT).show();
-            }
-        });
+        findViewById(R.id.pay_button).setOnClickListener(v ->
+                Toast.makeText(GroceryActivity.this, "Total Payable Amount: ₹" + totalAmount, Toast.LENGTH_SHORT).show()
+        );
     }
 
     // Method to retrieve grocery items from the database
     private List<GroceryItem> getGroceryItems() {
         List<GroceryItem> items = new ArrayList<>();
-        SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM groceries", null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                String name = cursor.getString(cursor.getColumnIndex("name"));
-                int price = cursor.getInt(cursor.getColumnIndex("price"));
-                int quantity = cursor.getInt(cursor.getColumnIndex("quantity"));
-                int imageResId = cursor.getInt(cursor.getColumnIndex("imageResId"));
-                items.add(new GroceryItem(name, price, quantity, imageResId));
-            } while (cursor.moveToNext());
+        // Get the cursor from the DatabaseHelper
+        Cursor cursor = databaseHelper.getAllGroceryItems();
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String name = cursor.getString(cursor.getColumnIndex(GroceryItemsTable.COLUMN_GROCERY_NAME));
+                    int price = cursor.getInt(cursor.getColumnIndex(GroceryItemsTable.COLUMN_PRICE));
+                    int quantity = cursor.getInt(cursor.getColumnIndex(GroceryItemsTable.COLUMN_QUANTITY));
+                    int imageResId = cursor.getInt(cursor.getColumnIndex(GroceryItemsTable.COLUMN_IMAGE_RES_ID));
+
+                    // Create a new GroceryItem and add it to the list
+                    items.add(new GroceryItem(name, price, quantity, imageResId));
+                } while (cursor.moveToNext());
+            }
+            cursor.close(); // Make sure to close the cursor to avoid memory leaks
+        } else {
+            Log.e("GroceryActivity", "Cursor is null, no data retrieved from the database.");
         }
-        cursor.close();
+
         return items;
     }
+
 
     // Update total amount displayed
     private void updateUI() {

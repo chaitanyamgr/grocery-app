@@ -1,5 +1,12 @@
 package com.example.groceryapp;
 
+import static com.example.groceryapp.GroceryItemsTable.COLUMN_GROCERY_ID;
+import static com.example.groceryapp.GroceryItemsTable.COLUMN_GROCERY_NAME;
+import static com.example.groceryapp.GroceryItemsTable.COLUMN_IMAGE_RES_ID;
+import static com.example.groceryapp.GroceryItemsTable.COLUMN_PRICE;
+import static com.example.groceryapp.GroceryItemsTable.COLUMN_QUANTITY;
+import static com.example.groceryapp.GroceryItemsTable.TABLE_GROCERIES;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +15,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-
     private static final String TAG = "DatabaseHelper";
     private static final String DATABASE_NAME = "GroceryApp.db";
     private static final int DATABASE_VERSION = 2; // Incremented version
@@ -19,13 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PHONE = "phone";
 
-    // Grocery Items Table
-    private static final String TABLE_GROCERIES = "groceries";
-    private static final String COLUMN_GROCERY_ID = "id";
-    private static final String COLUMN_GROCERY_NAME = "name";
-    private static final String COLUMN_PRICE = "price";
-    private static final String COLUMN_QUANTITY = "quantity";
-    private static final String COLUMN_IMAGE_RES_ID = "imageResId";
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
