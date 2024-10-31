@@ -1,4 +1,4 @@
-package com.example.groceryapp;
+package com.example.groceryapp.Database;
 
 public class GroceryItemsTable {
     // Grocery Items Table

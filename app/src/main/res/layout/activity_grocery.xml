@@ -1,50 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
-    android:background="@color/green">
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <!-- User Details -->
-    <TextView
-        android:id="@+id/user_details"
-        android:layout_width="wrap_content"
+    <!-- Top Header with Location and Logo -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello, User"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
 
-    <!-- GridView for items -->
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/carrot" />
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/user_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Location, City"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Offer Banner -->
+    <ImageView
+        android:id="@+id/banner_image"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_offer_banner" />
+
+    <!-- Exclusive Offer Section Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/exclusive_offer"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/see_all"
+            android:textColor="#27AE60"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- GridView for Product Items -->
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:numColumns="2"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        android:gravity="center" />
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:stretchMode="columnWidth" />
 
-    <!-- Total Amount -->
-    <TextView
-        android:id="@+id/total_amount"
-        android:layout_width="wrap_content"
+    <!-- Footer with Total Amount and Pay Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total: ₹0"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        android:background="#EEEEEE"
+        android:padding="8dp">
 
-    <!-- Pay Button -->
-    <Button
-        android:id="@+id/pay_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay Now"
-        android:padding="12dp"
-        android:textSize="18sp" />
+        <!-- Total Amount Text -->
+        <TextView
+            android:id="@+id/total_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+        <!-- Pay Button -->
+        <Button
+            android:id="@+id/pay_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pay"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#27AE60"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.groceryapp;
+package com.example.groceryapp.Models;
 
 public class GroceryItem {
     private final String name;

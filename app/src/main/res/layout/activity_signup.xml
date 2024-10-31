@@ -5,24 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:background="@color/background_color">
-
-    <!-- Carrot Logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="24dp"
-        android:src="@drawable/carrot"
-        android:background="@color/white"/>
 
     <!-- Title -->
     <TextView
-        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loging"
+        android:text="@string/signup"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -30,15 +20,31 @@
 
     <!-- Subtitle -->
     <TextView
-        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/enter_your_emails_and_password"
+        android:text="@string/create_an_account_to_get_started"
         android:textColor="@color/gray"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
 
-    <!-- Email Input Label -->
+    <!-- Name Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/gray"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Email Input -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,19 +52,17 @@
         android:textColor="@color/gray"
         android:layout_marginBottom="4dp" />
 
-    <!-- Email Input -->
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="emailAddress"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:background="@drawable/edit_text_background"
         android:padding="12dp"
         android:layout_marginBottom="16dp" />
 
-    <!-- Password Input Label -->
+    <!-- Password Input -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,59 +70,42 @@
         android:textColor="@color/gray"
         android:layout_marginBottom="4dp" />
 
-    <!-- Password Input -->
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/signup_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:background="@drawable/edit_text_background"
         android:padding="12dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp" />
 
-    <!-- Forgot Password -->
+    <!-- Confirm Password Input -->
     <TextView
-        android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
+        android:text="Phone No."
         android:textColor="@color/gray"
-        android:layout_gravity="end"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="4dp" />
 
-    <!-- Login Button -->
-    <Button
-        android:id="@+id/login_button"
+    <EditText
+        android:id="@+id/phoneNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_in"
+        android:hint="@string/phone_no"
+        android:inputType="phone"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Signup Button -->
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
         android:textSize="18sp"
         android:backgroundTint="@color/green"
         android:textColor="@color/white"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Sign Up Link -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/don_t_have_an_account"
-            android:textColor="@color/gray" />
-
-        <TextView
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/signup"
-            android:textColor="@color/green"
-            android:layout_marginStart="4dp" />
-    </LinearLayout>
-
+        android:padding="12dp" />
 </LinearLayout>

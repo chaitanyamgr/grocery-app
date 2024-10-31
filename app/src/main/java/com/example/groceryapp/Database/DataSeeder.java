@@ -1,9 +1,12 @@
-package com.example.groceryapp;
+package com.example.groceryapp.Database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.example.groceryapp.Models.GroceryItem;
+import com.example.groceryapp.R;
 
 import java.util.Arrays;
 import java.util.List;

@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.groceryapp.Models.GroceryItem;
+
 import java.util.List;
 
 public class GroceryAdapter extends BaseAdapter {
