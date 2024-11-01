@@ -77,7 +77,7 @@ public class GroceryItemAdapter extends BaseAdapter {
             CartItem cartItem = cartItems.get(item.getName());
             cartItem.setQuantity(cartItem.getQuantity() + 1);
         } else {
-            cartItems.put(item.getName(), new CartItem(item.getName(), item.getPrice(), 1));
+            cartItems.put(item.getName(), new CartItem(item.getImageResId(),1, item.getPrice(),item.getName()));
         }
 
         // Notify the activity to update the total amount

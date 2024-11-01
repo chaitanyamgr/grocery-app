@@ -24,7 +24,6 @@ public class GroceryActivity extends AppCompatActivity implements GroceryItemAda
 
     private TextView totalTextView;
     private DatabaseHelper databaseHelper;
-    private List<GroceryItem> groceryItems;
     private GroceryItemAdapter groceryAdapter;
     private int totalAmount = 0;
 
@@ -43,7 +42,7 @@ public class GroceryActivity extends AppCompatActivity implements GroceryItemAda
 
         // Initialize DatabaseHelper and fetch data
         databaseHelper = new DatabaseHelper(this);
-        groceryItems = getGroceryItems();
+        List<GroceryItem> groceryItems = getGroceryItems();
 
         // Set up GridView with the adapter
         GridView gridView = findViewById(R.id.grid_view);
@@ -51,8 +50,8 @@ public class GroceryActivity extends AppCompatActivity implements GroceryItemAda
         gridView.setAdapter(groceryAdapter);
 
         // Handle Pay button click
-        Button payButton = findViewById(R.id.pay_button);
-        payButton.setOnClickListener(v -> {
+        Button cartButton = findViewById(R.id.cart_button);
+        cartButton.setOnClickListener(v -> {
             int totalAmountToPay = calculateTotalAmount(groceryAdapter.getCartItems()); // Get total from cart items
             totalTextView.setText(String.format("Total: ₹%d", totalAmountToPay)); // Update the total amount TextView
 

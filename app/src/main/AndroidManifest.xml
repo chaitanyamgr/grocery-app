@@ -25,6 +25,8 @@
         <activity android:name=".Pages.LoginActivity" />
         <activity android:name=".Pages.SignupActivity" />
         <activity android:name=".Pages.ForgotPasswordActivity" />
+
+        <activity android:name=".Pages.GroceryCart" />
     </application>
 
 </manifest>

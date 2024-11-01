@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="#F8F8F8"
+    android:layout_marginBottom="8dp">
+
+    <!-- Item Image -->
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_placeholder"
+        android:contentDescription="Item Image"
+        android:layout_gravity="center_vertical" />
+
+    <!-- Item Details Section -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1kg, Price"
+            android:textSize="14sp"
+            android:textColor="#7A7A7A" />
+    </LinearLayout>
+
+    <!-- Quantity Controls and Price -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="8dp"> <!-- Added margin for spacing -->
+
+        <ImageButton
+            android:id="@+id/minus_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_minus"
+            android:background="@null"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/item_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center" />
+
+        <ImageButton
+            android:id="@+id/plus_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_plus"
+            android:background="@null"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <!-- Price Text -->
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:text="₹4.99"
+        android:textColor="#000000"
+        android:textSize="20sp" /> <!-- Optional margin to fine-tune alignment -->
+
+    <!-- Remove Button -->
+    <ImageView
+        android:id="@+id/remove_button"
+        android:layout_width="24dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_close"
+        android:contentDescription="@string/remove_item"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp" />
+</LinearLayout>
