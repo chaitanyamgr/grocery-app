@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,7 +23,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public CartAdapter(Context context, List<CartItem> cartItems) {
         this.context = context;
         this.cartItems = cartItems;
-        }
+        calculateInitialTotal();  // Calculate the initial total when the adapter is created
+    }
 
     public void setTotalUpdateListener(TotalUpdateListener listener) {
         this.totalUpdateListener = listener;
@@ -59,17 +60,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.itemPrice.setText(priceText);
         holder.itemQuantity.setText(String.valueOf(cartItem.getQuantity()));
 
+        // Set the image in itemImage
+        holder.itemImage.setImageResource(cartItem.getImageResourceId());
+
         // Add click listeners for the quantity buttons
         holder.plusButton.setOnClickListener(v -> {
             cartItem.setQuantity(cartItem.getQuantity() + 1);
-            notifyItemChanged(position);
+            holder.itemQuantity.setText(String.valueOf(cartItem.getQuantity())); // Update quantity displayed
             updateTotal(); // Update total when quantity is increased
         });
 
         holder.minusButton.setOnClickListener(v -> {
             if (cartItem.getQuantity() > 1) {
                 cartItem.setQuantity(cartItem.getQuantity() - 1);
-                notifyItemChanged(position);
+                holder.itemQuantity.setText(String.valueOf(cartItem.getQuantity())); // Update quantity displayed
                 updateTotal(); // Update total when quantity is decreased
             }
         });
@@ -90,8 +94,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public static class CartViewHolder extends RecyclerView.ViewHolder {
 
         TextView itemName, itemPrice, itemQuantity;
-        Button plusButton, minusButton;
-        ImageView removeButton;
+        ImageButton plusButton, minusButton;
+        ImageView removeButton, itemImage; // Declare itemImage here
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -101,6 +105,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             plusButton = itemView.findViewById(R.id.plus_button);
             minusButton = itemView.findViewById(R.id.minus_button);
             removeButton = itemView.findViewById(R.id.remove_button);
+            itemImage = itemView.findViewById(R.id.item_image); // Initialize itemImage
         }
     }
 
@@ -108,4 +113,3 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         void onTotalUpdated(int newTotal);
     }
 }
-
