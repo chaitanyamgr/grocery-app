@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="blue">#2196F3</color>
-    <color name="green">#4CAF50</color>
+
+    <color name="background_color">#F5F5F5</color> <!-- Light background color for the screen -->
+    <color name="green">#4CAF50</color> <!-- Primary green color for buttons and highlights -->
+    <color name="black">#212121</color> <!-- Dark color for text -->
+    <color name="white">#FFFFFF</color> <!-- White color for text and backgrounds -->
+    <color name="gray">#9E9E9E</color> <!-- Light gray for secondary text -->
+
+    <!-- Additional Colors -->
+    <color name="banner_background">#FFF9E3</color> <!-- Light yellow for banner background -->
+    <color name="dark_gray">#757575</color> <!-- Dark gray for icons and subtle text -->
+    <color name="text_subtle">#BDBDBD</color> <!-- Very light gray for placeholder text -->
+
+    <!-- Text Colors -->
+    <color name="title_color">#333333</color> <!-- Primary title color for sections -->
+    <color name="subtitle_color">#757575</color> <!-- Subtitle color for secondary text -->
+
+    <!-- Button Colors -->
+    <color name="button_green">#66BB6A</color> <!-- Lighter shade of green for buttons -->
+    <color name="button_text_white">#FFFFFF</color> <!-- White for button text -->
+
+    <!-- Placeholder Colors -->
+    <color name="placeholder_gray">#E0E0E0</color> <!-- Gray for image placeholders -->
+    <color name="colorAccent">#FF4081</color> <!-- You can change this to any color you want -->
 </resources>

@@ -1,0 +1,15 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Background color of the banner -->
+    <solid android:color="#FFEB3B"/> <!-- Example color, change as needed -->
+
+    <!-- Rounded corners -->
+    <corners android:radius="8dp"/> <!-- Adjust corner radius as needed -->
+
+    <!-- Optional: Add a stroke around the banner -->
+    <stroke
+        android:width="2dp"
+        android:color="#FFD600"/> <!-- Example stroke color, change as needed -->
+
+</shape>

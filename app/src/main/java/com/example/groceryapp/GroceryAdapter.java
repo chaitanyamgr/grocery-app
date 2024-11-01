@@ -5,28 +5,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.groceryapp.Models.GroceryItem;
+
+import java.util.List;
 
 public class GroceryAdapter extends BaseAdapter {
 
-    private Context context;
-    private String[] items;
-    private int[] prices;
+    private final Context context;
+    private final List<GroceryItem> groceryItems;
 
-    public GroceryAdapter(Context context, String[] items, int[] prices) {
+    public GroceryAdapter(Context context, List<GroceryItem> groceryItems) {
         this.context = context;
-        this.items = items;
-        this.prices = prices;
+        this.groceryItems = groceryItems;
     }
 
     @Override
     public int getCount() {
-        return items.length;
+        return groceryItems.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return items[position];
+        return groceryItems.get(position);
     }
 
     @Override
@@ -40,13 +43,15 @@ public class GroceryAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.grid_item, parent, false);
         }
 
-        // Get references to the TextViews in the grid_item layout
-        TextView itemName = convertView.findViewById(R.id.item_name);
-        TextView itemPrice = convertView.findViewById(R.id.item_price);
+        GroceryItem item = groceryItems.get(position);
 
-        // Set item name and price
-        itemName.setText(items[position]);
-        itemPrice.setText("₹" + prices[position]);
+        ImageView imageView = convertView.findViewById(R.id.item_image);
+        TextView nameTextView = convertView.findViewById(R.id.item_name);
+        TextView priceTextView = convertView.findViewById(R.id.item_price);
+
+        nameTextView.setText(item.getName());
+        priceTextView.setText("₹" + item.getPrice());
+        imageView.setImageResource(item.getImageResId());
 
         return convertView;
     }

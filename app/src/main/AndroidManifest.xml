@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GroceryApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Pages.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroceryActivity"></activity>
+        <activity android:name=".Pages.GroceryActivity"/>
+        <activity android:name=".Pages.LoginActivity" />
+        <activity android:name=".Pages.SignupActivity" />
+        <activity android:name=".Pages.ForgotPasswordActivity" />
     </application>
 
 </manifest>
