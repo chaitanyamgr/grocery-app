@@ -1,5 +1,6 @@
 package com.example.groceryapp.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +57,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem cartItem = cartItems.get(position);
         holder.itemName.setText(cartItem.getName());
-        String priceText = String.format("₹%d", cartItem.getPrice());
+        @SuppressLint("DefaultLocale") String priceText = String.format("₹%d", cartItem.getPrice());
         holder.itemPrice.setText(priceText);
         holder.itemQuantity.setText(String.valueOf(cartItem.getQuantity()));
 
