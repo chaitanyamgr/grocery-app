@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">GroceryApp</string>
-    <string name="loging">Loging</string>
+    <string name="loging">Log In</string>
     <string name="enter_your_emails_and_password">Enter your emails and password</string>
     <string name="email">Email</string>
     <string name="don_t_have_an_account">Don’t have an account?</string>
@@ -20,4 +20,8 @@
     <string name="hello">"Hello, "</string>
     <string name="see_all">See all</string>
     <string name="pay">Pay</string>
+    <string name="view_cart">View Cart</string>
+    <string name="total_0_00">Total: 0.00</string>
+    <string name="my_cart">My Cart</string>
+    <string name="remove_item">Remove Item</string>
 </resources>

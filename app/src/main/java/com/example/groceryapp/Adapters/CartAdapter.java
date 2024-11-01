@@ -16,12 +16,32 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
-    private List<CartItem> cartItems;
-    private Context context;
+    private final List<CartItem> cartItems;
+    private final Context context;
+    private TotalUpdateListener totalUpdateListener;
 
     public CartAdapter(Context context, List<CartItem> cartItems) {
         this.context = context;
         this.cartItems = cartItems;
+        }
+
+    public void setTotalUpdateListener(TotalUpdateListener listener) {
+        this.totalUpdateListener = listener;
+    }
+
+    private void updateTotal() {
+        int newTotal = 0;
+        for (CartItem item : cartItems) {
+            newTotal += item.getPrice() * item.getQuantity();
+        }
+        if (totalUpdateListener != null) {
+            totalUpdateListener.onTotalUpdated(newTotal);
+        }
+    }
+
+    // Inside CartAdapter
+    public void calculateInitialTotal() {
+        updateTotal();
     }
 
     @NonNull
@@ -35,7 +55,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem cartItem = cartItems.get(position);
         holder.itemName.setText(cartItem.getName());
-        String priceText = String.format("$%d", cartItem.getPrice());
+        String priceText = String.format("₹%d", cartItem.getPrice());
         holder.itemPrice.setText(priceText);
         holder.itemQuantity.setText(String.valueOf(cartItem.getQuantity()));
 
@@ -43,12 +63,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.plusButton.setOnClickListener(v -> {
             cartItem.setQuantity(cartItem.getQuantity() + 1);
             notifyItemChanged(position);
+            updateTotal(); // Update total when quantity is increased
         });
 
         holder.minusButton.setOnClickListener(v -> {
             if (cartItem.getQuantity() > 1) {
                 cartItem.setQuantity(cartItem.getQuantity() - 1);
                 notifyItemChanged(position);
+                updateTotal(); // Update total when quantity is decreased
             }
         });
 
@@ -56,6 +78,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.removeButton.setOnClickListener(v -> {
             cartItems.remove(position);
             notifyItemRemoved(position);
+            updateTotal(); // Update total when an item is removed
         });
     }
 
@@ -79,6 +102,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             minusButton = itemView.findViewById(R.id.minus_button);
             removeButton = itemView.findViewById(R.id.remove_button);
         }
+    }
+
+    public interface TotalUpdateListener {
+        void onTotalUpdated(int newTotal);
     }
 }
 

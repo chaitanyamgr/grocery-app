@@ -93,12 +93,12 @@
             android:textColor="#333333"
             android:textSize="16sp"
             android:layout_weight="1" />
-        <!-- Pay Button -->
+        <!-- Cart Button -->
         <Button
-            android:id="@+id/pay_button"
+            android:id="@+id/cart_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pay"
+            android:text="@string/view_cart"
             android:textColor="#FFFFFF"
             android:backgroundTint="#27AE60"
             android:paddingHorizontal="16dp" />
