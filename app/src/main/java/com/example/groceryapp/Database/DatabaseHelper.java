@@ -17,7 +17,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
     private static final String DATABASE_NAME = "GroceryApp.db";
-    private static final int DATABASE_VERSION = 3; // Incremented version
+    private static final int DATABASE_VERSION = 4; // Incremented version
 
     // Users Table
     private static final String TABLE_USERS = "users";

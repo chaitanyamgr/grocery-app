@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Proceed to GroceryActivity
                     Intent intent = new Intent(this, GroceryActivity.class);
                     intent.putExtra("email", userEmailId); // Pass email if needed in GroceryActivity
-                    intent.putExtra("name", userName); // Pass the user's name
+                    intent.putExtra("name", userName);
                     startActivity(intent);
                     finish(); // Close LoginActivity
                 } else {
