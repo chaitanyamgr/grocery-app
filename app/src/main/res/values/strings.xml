@@ -24,4 +24,10 @@
     <string name="total_0_00">Total: 0.00</string>
     <string name="my_cart">My Cart</string>
     <string name="remove_item">Remove Item</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="enter_your_email_to_reset_your_password">Enter your email to reset your password</string>
+    <string name="email_id">Email ID</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="go_to_home_page">Go to Home Page</string>
+    <string name="your_items_have_been_placed_and_are_on_their_way_to_being_processed">Your items have been placed and are on their way to being processed</string>
 </resources>

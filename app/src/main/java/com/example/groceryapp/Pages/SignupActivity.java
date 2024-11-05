@@ -40,7 +40,7 @@ public class SignupActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
         String phoneNo = phone.getText().toString().trim();
 
-        // Validate input
+
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phoneNo)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;

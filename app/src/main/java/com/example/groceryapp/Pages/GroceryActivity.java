@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.groceryapp.Adapters.GroceryItemAdapter;
 import com.example.groceryapp.Database.DatabaseHelper;
@@ -58,8 +58,9 @@ public class GroceryActivity extends AppCompatActivity implements GroceryItemAda
             // Create an intent to start the PaymentActivity
             Intent intent = new Intent(GroceryActivity.this, GroceryCart.class);
             intent.putExtra("cartItems", new ArrayList<>(groceryAdapter.getCartItems().values())); // Pass cart items
+            intent.putExtra("name", name);
             startActivity(intent);
-            Toast.makeText(GroceryActivity.this, "Total Payable Amount: ₹" + totalAmountToPay, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(GroceryActivity.this, "Total Payable Amount: ₹" + totalAmountToPay, Toast.LENGTH_SHORT).show();
         });
     }
 

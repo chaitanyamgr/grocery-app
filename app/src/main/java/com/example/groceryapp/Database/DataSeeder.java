@@ -14,7 +14,6 @@ import java.util.List;
 public class DataSeeder {
     private static final String TAG = "DataSeeder";
 
-    // List of grocery items to seed
     private static final List<GroceryItem> groceryItems = Arrays.asList(
             new GroceryItem("Apple", 10, 50, R.drawable.apple),
             new GroceryItem("Banana", 5, 30, R.drawable.banana),
@@ -24,7 +23,7 @@ public class DataSeeder {
             new GroceryItem("Tomato", 7, 50, R.drawable.tomato),
             new GroceryItem("Potato", 3, 100, R.drawable.potato),
             new GroceryItem("Onion", 6, 70, R.drawable.onion),
-            new GroceryItem("Harpic", 30, 15, R.drawable.harpic)
+            new GroceryItem("Rice", 30, 15, R.drawable.harpic)
     );
 
     // Seed the database with initial grocery items

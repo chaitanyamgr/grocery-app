@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.example.groceryapp.Models.CartItem;
 import com.example.groceryapp.Models.GroceryItem;
@@ -80,12 +80,11 @@ public class GroceryItemAdapter extends BaseAdapter {
             cartItems.put(item.getName(), new CartItem(item.getImageResId(),1, item.getPrice(),item.getName()));
         }
 
-        // Notify the activity to update the total amount
         if (listener != null) {
             listener.onItemAdded(item);
         }
 
-        Toast.makeText(context, item.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, item.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
     }
 
     public Map<String, CartItem> getCartItems() {
